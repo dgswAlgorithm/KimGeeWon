@@ -15,8 +15,7 @@ int main()
 	int beforeIndex = 0;
 	int index = 0;
 	
-	
-
+	// 이어지는 1의 갯수를 배열에 저장
 	for (int i = 0; i < data_leng; i++)
 	{
 		if (data[i] == 1)
@@ -27,25 +26,21 @@ int main()
 		else
 		{
 			fin[index] += count[beforeIndex];
-
 			beforeIndex = index;
 			index = i;
 		}
 		if (i == 9)
-		{
 			fin[index] += count[beforeIndex];
-		}
 	}
 
+	// 이어지는 1의 갯수가 가장 많은 배열의 index 저장
 	for (int i = 0; i < data_leng; i++)
 	{
 		if (i == 9)
 			break;
 
 		if (fin[check] > fin[i + 1])
-		{
 			finIndex = check;
-		}
 		else
 			check = i;
 	}
@@ -53,21 +48,14 @@ int main()
 
 	printf("변경 전: \n");
 	for (int i = 0; i < data_leng; i++)
-	{
 		printf("%d, ", data[i]);
-	}
 
-	printf("\n\n");
+	printf("\n\n바뀐 index: %d\n변경 후: \n", finIndex);
 
 	data[finIndex] = 1;
 
-	printf("바뀐 index: %d\n", finIndex);
-	printf("변경 후: \n");
-
 	for (int i = 0; i < data_leng; i++)
-	{
 		printf("%d, ", data[i]);
-	}
 
 	printf("\n\n");
 }
